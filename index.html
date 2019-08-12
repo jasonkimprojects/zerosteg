@@ -2,35 +2,64 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
 	<style type="text/css">
 		body {
-			font-family: "Arial";
-			margin-left: 30px;
+			font-family: "Roboto Slab", serif;
+			margin: 30px;
+			font-size: 18px;
 		}
 		.child {
 			display: inline-block;
 			vertical-align: top;
 			margin-right: 50px;
+			margin-top: 20px;
 		}
 		textarea {
+			border: 3px solid black;
+		}
+		.textarea-small {
 			min-width: 300px;
 			min-height: 150px;
 		}
+		.textarea-large {
+			min-width: 300px;
+			min-height: 370px;
+		}
 		button {
 			margin: auto;
+			border: none;
+			text-align: center;
+			background-color: orange;
+			color: white;
+			font-size: 16px;
+			padding: 15px 30px;
+			border-radius: 10px;
+			font-family: "Roboto Slab", serif;
+		}
+		a {
+			color: orange;
+		}
+		h1 {
+			color: orange;
 		}
 	</style>
 	<script src="zerosteg.js"></script>
 </head>
 <body>
 	<h1>ZeroSteg</h1>
-	<p>A simple text steganography tool using the zero width joiner and non-joiner characters from Unicode.</p>
+	<p>A simple web-based text steganography tool.</p>
+	<p>ZeroSteg uses zero-width Unicode characters to hide information.</p>
+	<p>Encoding and decoding are done with client-side JavaScript.</p>
+	<p>For its source code, visit my repository
+		<a href="https://github.com/jasonkimprojects/zerosteg">here.</a></p>
+	<small>Authored by Jason Kim, 2019.</small>
 	<div class="parent">
 		<div class="child">
 			<p>Message to hide:</p>
-			<textarea id="steg"></textarea>
+			<textarea class="textarea-small" id="steg"></textarea>
 			<p>Text to mask message within:</p>
-			<textarea id="mask"></textarea>
+			<textarea class="textarea-small" id="mask"></textarea>
 			<br>
 			<br>
 			<div style="text-align: center;">
@@ -39,7 +68,7 @@
 		</div>
 		<div class="child">
 			<p>Ciphertext:</p>
-			<textarea id="ciphertext"></textarea>
+			<textarea class="textarea-large" id="ciphertext"></textarea>
 			<br>
 			<br>
 			<div style="text-align: center;">
