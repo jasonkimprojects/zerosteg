@@ -4,6 +4,9 @@ zerosteg.js
 
 An encoder and decoder for messages WITHIN another text message,
 using the zero-width joiner and non-joiner characters from Unicode.
+
+Jason Kim
+August 12, 2019
 */
 
 /*
@@ -23,15 +26,22 @@ function encode() {
     // Insert ZWJ and ZWNJ chars.
     var binary_idx = 0;
     for (i in insertion_arr) {
-        idx = insertion_arr[i];
+        // Need to add i to keep track of # of inserts,
+        // because the absolute index will shift as we insert
+        // characters from the beginning of the string.
+        idx = parseInt(insertion_arr[i]) + parseInt(i);
+        console.log(idx);
         if (steg_binary[binary_idx] === '1') {
+            // Insert zero-width joiner
             result = str_insert(result, '\u200d', idx);
         }
         else {
+            // Insert zero-width non-joiner
             result = str_insert(result, '\u200c', idx);
         }
         ++binary_idx;
     }
+    // Write to webpage.
     document.getElementById('result').innerHTML = result;
 }
 
@@ -81,22 +91,39 @@ function rand_insert(text_len, steg_len) {
     return indices;
 }
 
-// TODO: Complete this function.
-function decode(str) {
-    //console.log("ASDF");
+/*
+Decodes ZWJ and ZWNJ characters inside a string to reveal
+the hidden message. Basically reverses the operation of encode().
+*/
+function decode() {
+    var str = document.getElementById('ciphertext').value;
     // Convert into char array.
     var chars = str.split('');
-    var output = '';
+    // Will hold bytes in binary after parsing.
+    var bytes = [];
+    var buffer = '';
+    // Parse sequence of ZWJ/ZWNJ and reconstruct binary string.
     for (var i = 0; i < chars.length; ++i) {
-        //console.log(chars[i]);
         if (chars[i] === '\u200d') {
-            output += '1';
+            buffer += '1';
         }
         else if (chars[i] === '\u200c') {
-            output += '0';
+            buffer += '0';
+        }
+        // Push to bytes if a byte is complete.
+        if (buffer.length === 8) {
+            bytes.push(buffer);
+            buffer = '';
         }
     }
-    console.log(output);
-    console.log(parseInt(output, 2).toString(10));
-    console.log(String.fromCharCode(65));
+    // Then convert each to decimal.
+    for (var j = 0; j < bytes.length; ++j) {
+        bytes[j] = parseInt(bytes[j], 2);
+    }
+    // Then convert decimal ASCII to char.
+    for (var k = 0; k < bytes.length; ++k) {
+        bytes[k] = String.fromCharCode(bytes[k]);
+    }
+    // Write to webpage.
+    document.getElementById('result').innerHTML = bytes.join('');
 }

@@ -5,49 +5,8 @@
 	<meta charset="UTF-8">
 	<!-- Import Roboto Slab -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
-	<style type="text/css">
-		body {
-			font-family: "Roboto Slab", serif;
-			margin: 30px;
-			font-size: 18px;
-		}
-		/* For putting encode/decode divs side by side */
-		.child {
-			display: inline-block;
-			vertical-align: top;
-			margin-right: 50px;
-			margin-top: 20px;
-		}
-		textarea {
-			border: 3px solid black;
-		}
-		.textarea-small {
-			min-width: 300px;
-			min-height: 150px;
-		}
-		/* Align encode/decode buttons in side-by-side view */
-		.textarea-large {
-			min-width: 300px;
-			min-height: 370px;
-		}
-		button {
-			margin: auto;
-			border: none;
-			text-align: center;
-			background-color: orange;
-			color: white;
-			font-size: 16px;
-			padding: 15px 30px;
-			border-radius: 10px;
-			font-family: "Roboto Slab", serif;
-		}
-		a {
-			color: orange;
-		}
-		h1 {
-			color: orange;
-		}
-	</style>
+	<!-- Import CSS and JS -->
+	<link rel="stylesheet" href="style.css">
 	<script src="zerosteg.js"></script>
 </head>
 <body>
@@ -84,6 +43,7 @@
 	</div>
 	<br>
 	<!-- Result of encode/decode will be inserted here -->
-	<p id="result"></p>
+	<h3>Result - copy and paste:</h3>
+	<textarea class="textarea-small" id="result"></textarea>
 </body>
 </html>

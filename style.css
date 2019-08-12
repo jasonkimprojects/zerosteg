@@ -1,0 +1,55 @@
+/*
+Stylesheet for ZeroSteg.
+Authored by Jason Kim
+August 12, 2019
+*/
+body {
+	font-family: "Roboto Slab", serif;
+	margin: 30px;
+	font-size: 18px;
+}
+/* For putting encode/decode divs side by side */
+.child {
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 50px;
+	margin-top: 20px;
+}
+textarea {
+	border: 3px solid black;
+	font-family: "Roboto Slab", serif;
+}
+.textarea-small {
+	min-width: 300px;
+	min-height: 150px;
+}
+/* Align encode/decode buttons in side-by-side view */
+.textarea-large {
+	min-width: 300px;
+	min-height: 370px;
+}
+.result-window {
+	border: 3px solid black;
+	max-width: 600px;
+	min-height: 150px;
+}
+button {
+	margin: auto;
+	border: none;
+	text-align: center;
+	background-color: orange;
+	color: white;
+	font-size: 16px;
+	padding: 15px 30px;
+	border-radius: 10px;
+	font-family: "Roboto Slab", serif;
+}
+button:hover {
+	border: 3px solid black;
+}
+a {
+	color: orange;
+}
+h1 {
+	color: orange;
+}
