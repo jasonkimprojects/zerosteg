@@ -6,13 +6,17 @@ An encoder and decoder for messages WITHIN another text message,
 using the zero-width joiner and non-joiner characters from Unicode.
 */
 
+// TODO: Complete this function.
 function encode() {
-    var user_input = document.getElementById('user_input').value;
-    var result = "Hello " + user_input + "!<br>" + user_input.length;
+    var steg = document.getElementById('steg').value;
+    var mask = document.getElementById('mask').value;
+    console.log(steg)
+    console.log(mask)
+    var result = "Hello " + steg + "!<br>" + steg.length;
     document.getElementById('result').innerHTML = result;
     //console.log(rand_insert(100, 10));
     //console.log(convert_to_binary(user_input));
-    decode(user_input);
+    //decode(user_input);
 }
 
 /*
@@ -55,6 +59,7 @@ function rand_insert(text_len, steg_len) {
     return indices;
 }
 
+// TODO: Complete this function.
 function decode(str) {
     //console.log("ASDF");
     // Convert into char array.

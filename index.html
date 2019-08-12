@@ -4,7 +4,20 @@
 	<meta charset="UTF-8">
 	<style type="text/css">
 		body {
-			font-family: "Arial"
+			font-family: "Arial";
+			margin-left: 30px;
+		}
+		.child {
+			display: inline-block;
+			vertical-align: top;
+			margin-right: 50px;
+		}
+		textarea {
+			min-width: 300px;
+			min-height: 150px;
+		}
+		button {
+			margin: auto;
 		}
 	</style>
 	<script src="zerosteg.js"></script>
@@ -12,9 +25,28 @@
 <body>
 	<h1>ZeroSteg</h1>
 	<p>A simple text steganography tool using the zero width joiner and non-joiner characters from Unicode.</p>
-	<input type="text" id="user_input" />
-	<input type="text" id="hide_text" />
-	<button onclick="encode()">Submit</button>
+	<div class="parent">
+		<div class="child">
+			<p>Message to hide:</p>
+			<textarea id="steg"></textarea>
+			<p>Text to mask message within:</p>
+			<textarea id="mask"></textarea>
+			<br>
+			<br>
+			<div style="text-align: center;">
+				<button onclick="encode()">Encode</button>
+			</div>
+		</div>
+		<div class="child">
+			<p>Ciphertext:</p>
+			<textarea id="ciphertext"></textarea>
+			<br>
+			<br>
+			<div style="text-align: center;">
+				<button onclick="decode()">Decode</button>
+			</div>
+		</div>
+	</div>
 	<p id="result"></p>
 </body>
 </html>
