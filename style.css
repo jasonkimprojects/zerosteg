@@ -23,15 +23,13 @@ textarea {
 	min-width: 300px;
 	min-height: 150px;
 }
-/* Align encode/decode buttons in side-by-side view */
-.textarea-large {
-	min-width: 300px;
-	min-height: 370px;
-}
 .result-window {
 	border: 3px solid black;
 	max-width: 600px;
 	min-height: 150px;
+}
+.button-wrap {
+	text-align: center;
 }
 button {
 	margin: auto;
