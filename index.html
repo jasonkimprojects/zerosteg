@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<title>ZeroSteg</title>
 	<meta charset="UTF-8">
+	<!-- Import Roboto Slab -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
 	<style type="text/css">
 		body {
@@ -9,6 +11,7 @@
 			margin: 30px;
 			font-size: 18px;
 		}
+		/* For putting encode/decode divs side by side */
 		.child {
 			display: inline-block;
 			vertical-align: top;
@@ -22,6 +25,7 @@
 			min-width: 300px;
 			min-height: 150px;
 		}
+		/* Align encode/decode buttons in side-by-side view */
 		.textarea-large {
 			min-width: 300px;
 			min-height: 370px;
@@ -55,6 +59,7 @@
 		<a href="https://github.com/jasonkimprojects/zerosteg">here.</a></p>
 	<small>Authored by Jason Kim, 2019.</small>
 	<div class="parent">
+		<!-- Encode -->
 		<div class="child">
 			<p>Message to hide:</p>
 			<textarea class="textarea-small" id="steg"></textarea>
@@ -66,6 +71,7 @@
 				<button onclick="encode()">Encode</button>
 			</div>
 		</div>
+		<!-- Decode -->
 		<div class="child">
 			<p>Ciphertext:</p>
 			<textarea class="textarea-large" id="ciphertext"></textarea>
@@ -76,6 +82,8 @@
 			</div>
 		</div>
 	</div>
+	<br>
+	<!-- Result of encode/decode will be inserted here -->
 	<p id="result"></p>
 </body>
 </html>
